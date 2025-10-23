@@ -59,6 +59,7 @@ fire={
 2d_physics/layer_6="stomp"
 2d_physics/layer_7="activate"
 2d_physics/layer_8="change dir"
+2d_physics/layer_9="blocks"
 
 [rendering]
 

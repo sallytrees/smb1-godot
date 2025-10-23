@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://7xqe4pba7l3o"]
+
+[ext_resource type="Texture2D" uid="uid://tbu6wlgk25fb" path="res://assets/tileset/tileset.png" id="1_lph37"]
+[ext_resource type="Script" uid="uid://cx7don5k4gbn" path="res://entitys/objects/brick/brick.gd" id="1_yn4us"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xfoqq"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0r35"]
+size = Vector2(7.5, 2)
+
+[node name="brick" type="StaticBody2D"]
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("1_yn4us")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_xfoqq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-0.875, 0)
+scale = Vector2(1.01562, 1)
+texture = ExtResource("1_lph37")
+hframes = 33
+vframes = 28
+frame = 1
+
+[node name="break" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="break"]
+position = Vector2(-1, 9)
+shape = SubResource("RectangleShape2D_o0r35")
+
+[connection signal="body_entered" from="break" to="." method="_on_break_body_entered"]

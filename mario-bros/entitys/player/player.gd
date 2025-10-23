@@ -51,6 +51,8 @@ func animation():
 func bounce():
 	VELOCITYY = JUMP / 2
 
+func negativebounce():
+	VELOCITYY = -JUMP / 2
 
 func _on_bounce_body_entered(body: Node2D) -> void:
 	bounce()
