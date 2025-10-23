@@ -39,7 +39,7 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 0.2,
 "texture": ExtResource("1_8vnde")
 }, {
 "duration": 1.0,

@@ -56,3 +56,10 @@ func negativebounce():
 
 func _on_bounce_body_entered(body: Node2D) -> void:
 	bounce()
+
+
+func _on_blockbreak_body_entered(body: Node2D) -> void:
+	if body.has_method("destroy"):
+		if VELOCITYY < 100:
+			body.destroy()
+			negativebounce()

@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6pyhwcx1uvwo"]
+[gd_scene load_steps=5 format=3 uid="uid://b6pyhwcx1uvwo"]
 
 [ext_resource type="SpriteFrames" uid="uid://b5jt3nduyt5of" path="res://entitys/player/mario.tres" id="1_18y4t"]
 [ext_resource type="Script" uid="uid://blakgnw1ptiq6" path="res://entitys/player/player.gd" id="1_ytc5b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bbydh"]
 size = Vector2(14, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytc5b"]
+size = Vector2(14, 7)
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 297
@@ -20,3 +23,13 @@ texture_filter = 1
 position = Vector2(2, 0)
 sprite_frames = ExtResource("1_18y4t")
 animation = &"walk"
+
+[node name="blockbreak" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blockbreak"]
+position = Vector2(2, -7.5)
+shape = SubResource("RectangleShape2D_ytc5b")
+
+[connection signal="body_entered" from="blockbreak" to="." method="_on_blockbreak_body_entered"]
