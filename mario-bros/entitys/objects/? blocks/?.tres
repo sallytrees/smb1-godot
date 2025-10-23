@@ -1,0 +1,28 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://dc6yip6hqt8k5"]
+
+[ext_resource type="Texture2D" uid="uid://bh5uw1noappkk" path="res://assets/entities/? blocks/1.png" id="1_hdwkb"]
+[ext_resource type="Texture2D" uid="uid://b7rysysoukwyf" path="res://assets/entities/? blocks/2.png" id="2_jknhf"]
+[ext_resource type="Texture2D" uid="uid://cs3xv67u4g0np" path="res://assets/entities/? blocks/3.png" id="3_cpymw"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hdwkb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jknhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cpymw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jknhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hdwkb")
+}],
+"loop": true,
+"name": &"shin",
+"speed": 5.0
+}]

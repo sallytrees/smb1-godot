@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://dlmkfsfhfcg00"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://dlmkfsfhfcg00"]
 
 [ext_resource type="PackedScene" uid="uid://bdstuts8yy60f" path="res://entitys/enemies/goomba/goomba.tscn" id="1_giirh"]
 [ext_resource type="PackedScene" uid="uid://bbxf2pbmvlefe" path="res://entitys/enemies/koopa/koops.tscn" id="2_igtqj"]
 [ext_resource type="PackedScene" uid="uid://imo3vmwvdeux" path="res://entitys/objects/coins/coin.tscn" id="3_2byr8"]
 [ext_resource type="PackedScene" uid="uid://by5y8enupftnx" path="res://entitys/objects/level camera/level_camera.tscn" id="4_5f0ja"]
+[ext_resource type="PackedScene" uid="uid://dej13a5apwkpl" path="res://entitys/objects/? blocks/?block.tscn" id="5_2byr8"]
 [ext_resource type="PackedScene" uid="uid://7xqe4pba7l3o" path="res://entitys/objects/brick/brick.tscn" id="5_igtqj"]
 [ext_resource type="PackedScene" uid="uid://b6pyhwcx1uvwo" path="res://entitys/player/player.tscn" id="5_irse8"]
 
@@ -17,6 +18,7 @@ resource_name = "objects"
 scenes/1/scene = ExtResource("3_2byr8")
 scenes/2/scene = ExtResource("4_5f0ja")
 scenes/4/scene = ExtResource("5_igtqj")
+scenes/5/scene = ExtResource("5_2byr8")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_vneqe"]
 resource_name = "player"

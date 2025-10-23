@@ -1,8 +1,8 @@
 [gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://boigtb50i6ji0"]
 
-[ext_resource type="Texture2D" uid="uid://cpttw80p0ccck" path="res://assets/entities/coin1.png" id="1_82e5e"]
-[ext_resource type="Texture2D" uid="uid://cl7h24c1f846u" path="res://assets/entities/coin2.png" id="2_r6pdt"]
-[ext_resource type="Texture2D" uid="uid://q7lp3vsu3oul" path="res://assets/entities/coin3.png" id="3_4ccuy"]
+[ext_resource type="Texture2D" uid="uid://cpttw80p0ccck" path="res://assets/entities/coins/coin1.png" id="1_82e5e"]
+[ext_resource type="Texture2D" uid="uid://cl7h24c1f846u" path="res://assets/entities/coins/coin2.png" id="2_r6pdt"]
+[ext_resource type="Texture2D" uid="uid://q7lp3vsu3oul" path="res://assets/entities/coins/coin3.png" id="3_4ccuy"]
 
 [resource]
 animations = [{
