@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbxf2pbmvlefe"]
+[gd_scene load_steps=7 format=3 uid="uid://bbxf2pbmvlefe"]
 
 [ext_resource type="SpriteFrames" uid="uid://qe2nmy7wp80r" path="res://entitys/enemies/koopa/koopa.tres" id="1_155kf"]
 [ext_resource type="Script" uid="uid://buvpe6frcrdcc" path="res://entitys/enemies/koopa/koopa.gd" id="1_d60to"]
@@ -11,6 +11,9 @@ size = Vector2(20, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icf85"]
 size = Vector2(63, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d60to"]
+size = Vector2(26, 19)
 
 [node name="koopa" type="CharacterBody2D"]
 collision_layer = 66
@@ -58,7 +61,14 @@ collision_mask = 130
 [node name="death2" type="Timer" parent="."]
 wait_time = 9.729
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_d60to")
+
 [connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]
 [connection signal="timeout" from="death2" to="." method="_on_death_2_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

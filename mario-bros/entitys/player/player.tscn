@@ -22,7 +22,7 @@ shape = SubResource("RectangleShape2D_bbydh")
 texture_filter = 1
 position = Vector2(2, 0)
 sprite_frames = ExtResource("1_18y4t")
-animation = &"walk"
+animation = &"death"
 
 [node name="blockbreak" type="Area2D" parent="."]
 collision_layer = 256
