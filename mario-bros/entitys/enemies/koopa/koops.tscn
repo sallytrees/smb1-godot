@@ -10,7 +10,7 @@ size = Vector2(16, 24)
 size = Vector2(20, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icf85"]
-size = Vector2(38, 15)
+size = Vector2(63, 15)
 
 [node name="koopa" type="CharacterBody2D"]
 collision_layer = 66
@@ -42,18 +42,18 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hit"]
-position = Vector2(0, 2.5)
+position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_icf85")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-13, 1)
-target_position = Vector2(-5, 0)
-collision_mask = 128
+target_position = Vector2(-18, 0)
+collision_mask = 130
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2(11, 2)
-target_position = Vector2(8, 0)
-collision_mask = 128
+target_position = Vector2(18, 0)
+collision_mask = 130
 
 [node name="death2" type="Timer" parent="."]
 wait_time = 9.729

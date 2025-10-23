@@ -10,8 +10,10 @@ signal hurt
 func _physics_process(delta: float) -> void:
 	if DIR == 1 and ALIVE == 1:
 		position.x -= SPEED * delta
+		$koopa.flip_h = false
 	elif DIR == -1 and ALIVE == 1:
 		position.x += SPEED * delta
+		$koopa.flip_h = true
 	if is_on_floor() == false:
 		position.y += GRAVITY * delta
 	if ALIVE == 1:
@@ -28,9 +30,13 @@ func _physics_process(delta: float) -> void:
 		$koopa.flip_h = true
 	if $RayCast2D2.is_colliding() == true and ALIVE > -2:
 		DIR = 1
-		$koopa.flip_h = false
+	if ALIVE == -1:
+		$RayCast2D.enabled == false
+		$RayCast2D2.enabled == false
+	if ALIVE == 1:
+		$RayCast2D.enabled == true
+		$RayCast2D2.enabled == true
 	move_and_slide()
-	print(ALIVE)
 
 
 func _on_left_body_entered(body: Node2D) -> void:
