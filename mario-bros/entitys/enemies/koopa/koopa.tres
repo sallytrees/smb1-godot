@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://qe2nmy7wp80r"]
+
+[ext_resource type="Texture2D" uid="uid://dwg5q1kqpeil7" path="res://assets/characters/koopa/koopa4.png" id="1_0ky7e"]
+[ext_resource type="Texture2D" uid="uid://bye2tqtyhojew" path="res://assets/characters/koopa/koopa2.png" id="1_3xme8"]
+[ext_resource type="Texture2D" uid="uid://d36tpjd7kos5t" path="res://assets/characters/koopa/koopa3.png" id="1_81xrf"]
+[ext_resource type="Texture2D" uid="uid://cdivvmcxr7rk5" path="res://assets/characters/koopa/koopa.png" id="2_81xrf"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0ky7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_81xrf")
+}],
+"loop": true,
+"name": &"getup",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_81xrf")
+}],
+"loop": true,
+"name": &"shell",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3xme8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_81xrf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

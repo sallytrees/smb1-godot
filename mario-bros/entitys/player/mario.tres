@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://b5jt3nduyt5of"]
+
+[ext_resource type="Texture2D" uid="uid://qrt1f1om76nu" path="res://assets/characters/player/mario/mario2.png" id="1_8vnde"]
+[ext_resource type="Texture2D" uid="uid://blwl62mtt8vj" path="res://assets/characters/player/mario/mario.png" id="1_qexy4"]
+[ext_resource type="Texture2D" uid="uid://sabdgeu2a53n" path="res://assets/characters/player/mario/mario3.png" id="2_1240v"]
+[ext_resource type="Texture2D" uid="uid://c6urlhcra2mk2" path="res://assets/characters/player/mario/mario4.png" id="3_et4mv"]
+[ext_resource type="Texture2D" uid="uid://dllyc1eif8n8" path="res://assets/characters/player/mario/mario6.png" id="4_1240v"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8vnde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1240v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_et4mv")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("4_1240v")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qexy4")
+}],
+"loop": true,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("1_8vnde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_et4mv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1240v")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

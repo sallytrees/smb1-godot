@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://imo3vmwvdeux"]
+
+[ext_resource type="Script" uid="uid://yhpwy4w1gccu" path="res://entitys/objects/coins/coin.gd" id="1_k0hsx"]
+[ext_resource type="SpriteFrames" uid="uid://boigtb50i6ji0" path="res://entitys/objects/coins/coins.tres" id="1_njs82"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0hsx"]
+
+[node name="coin" type="Node2D"]
+script = ExtResource("1_k0hsx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("1_njs82")
+animation = &"shin"
+
+[node name="collect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collect"]
+shape = SubResource("RectangleShape2D_k0hsx")
+
+[connection signal="body_entered" from="collect" to="." method="_on_collect_body_entered"]

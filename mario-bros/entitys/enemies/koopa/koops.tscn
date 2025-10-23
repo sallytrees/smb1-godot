@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbxf2pbmvlefe"]
+
+[ext_resource type="SpriteFrames" uid="uid://qe2nmy7wp80r" path="res://entitys/enemies/koopa/koopa.tres" id="1_155kf"]
+[ext_resource type="Script" uid="uid://buvpe6frcrdcc" path="res://entitys/enemies/koopa/koopa.gd" id="1_d60to"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a0oj"]
+size = Vector2(16, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_155kf"]
+size = Vector2(20, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_icf85"]
+size = Vector2(38, 15)
+
+[node name="koopa" type="CharacterBody2D"]
+collision_layer = 66
+collision_mask = 66
+script = ExtResource("1_d60to")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6a0oj")
+
+[node name="koopa" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("1_155kf")
+animation = &"walk"
+
+[node name="death" type="Area2D" parent="."]
+position = Vector2(2, 0)
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_155kf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="hit" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_icf85")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-13, 1)
+target_position = Vector2(-5, 0)
+collision_mask = 128
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(11, 2)
+target_position = Vector2(8, 0)
+collision_mask = 128
+
+[node name="death2" type="Timer" parent="."]
+wait_time = 9.729
+
+[connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="hit" to="." method="_on_hit_body_entered"]
+[connection signal="timeout" from="death2" to="." method="_on_death_2_timeout"]
