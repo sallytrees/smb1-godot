@@ -52,7 +52,7 @@ func bounce():
 	VELOCITYY = JUMP / 2
 
 func negativebounce():
-	VELOCITYY = -JUMP / 2
+	VELOCITYY = -JUMP / 6
 
 func _on_bounce_body_entered(body: Node2D) -> void:
 	bounce()
@@ -60,6 +60,6 @@ func _on_bounce_body_entered(body: Node2D) -> void:
 
 func _on_blockbreak_body_entered(body: Node2D) -> void:
 	if body.has_method("destroy"):
-		if VELOCITYY < 100:
+		if VELOCITYY < -90:
 			body.destroy()
 			negativebounce()
