@@ -32,4 +32,9 @@ collision_mask = 256
 position = Vector2(2, -7.5)
 shape = SubResource("RectangleShape2D_ytc5b")
 
+[node name="Timer" type="Timer" parent="."]
+physics_interpolation_mode = 2
+wait_time = 0.031
+
 [connection signal="body_entered" from="blockbreak" to="." method="_on_blockbreak_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

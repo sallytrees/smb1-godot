@@ -10,6 +10,8 @@ var SPEEDCAP  = 70
 var FRICTION = 90
 var HEALTH = 1
 signal ACTIVATE
+
+
 func _physics_process(delta: float) -> void:
 	print(VELOCITYY)
 	animation(delta)
@@ -37,6 +39,9 @@ func _physics_process(delta: float) -> void:
 		VELOCITYX -= FRICTION * delta
 	if VELOCITYY < JUMPCAP:
 		VELOCITYY = JUMPCAP
+	if HEALTH == 0:
+		print("fucking timer")
+		$Timer.start()
 	move_and_slide()
 
 func animation(delta):
@@ -66,15 +71,19 @@ func _on_bounce_body_entered(body: Node2D) -> void:
 func death(delta):
 	VELOCITYX = 0
 	$CollisionShape2D.disabled = true
-
 func damage():
 	HEALTH -= 1
 	if HEALTH < 1:
 		VELOCITYX = 0
 		VELOCITYY = JUMP
 
+
 func _on_blockbreak_body_entered(body: Node2D) -> void:
 	if body.has_method("destroy"):
 		if VELOCITYY < -90:
 			body.destroy()
 			negativebounce()
+
+
+func _on_timer_timeout() -> void:
+	get_tree().reload_current_scene()
