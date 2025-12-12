@@ -26,16 +26,27 @@ func _physics_process(delta: float) -> void:
 	if $Timer.time_left < 3 and ALIVE == 0:
 		$koopa.play("getup")
 	if $RayCast2D.is_colliding() == true and ALIVE > -2:
-		DIR = -1
-		$koopa.flip_h = true
+		if $RayCast2D.get_collider().has_method("bounce") == false:
+			DIR = -1
+			$koopa.flip_h = true
 	if $RayCast2D2.is_colliding() == true and ALIVE > -2:
-		DIR = 1
+		if $RayCast2D2.get_collider().has_method("bounce") == false:
+			DIR = 1
+			$koopa.flip_h = false
 	if ALIVE == -1:
 		$RayCast2D.enabled == false
 		$RayCast2D2.enabled == false
 	if ALIVE == 1:
 		$RayCast2D.enabled == true
 		$RayCast2D2.enabled == true
+	if $RayCast2D2.is_colliding() and ALIVE == 0:
+		DIR = 1
+		ALIVE = -1
+		SPEED = 90
+	if $RayCast2D.is_colliding() and ALIVE == 0:
+		DIR = -1
+		ALIVE = -1
+		SPEED = 90
 	move_and_slide()
 
 

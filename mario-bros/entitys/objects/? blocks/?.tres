@@ -7,16 +7,16 @@
 [resource]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 0.9,
 "texture": ExtResource("1_hdwkb")
 }, {
-"duration": 1.0,
+"duration": 0.9,
 "texture": ExtResource("2_jknhf")
 }, {
-"duration": 1.0,
+"duration": 0.9,
 "texture": ExtResource("3_cpymw")
 }, {
-"duration": 1.0,
+"duration": 0.9,
 "texture": ExtResource("2_jknhf")
 }, {
 "duration": 1.0,

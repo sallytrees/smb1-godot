@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-var GRAVITY = 500
+var GRAVITY = 1000
 var VELOCITYY = 0
 var VELOCITYX: int = 0 
 var JUMP = -245
 var JUMPCAP = -1000
-var SPEED = 198
-var SPEEDCAP  = 70
-var FRICTION = 90
+var SPEED = 255
+var SPEEDCAP  = 90
+var FRICTION = 96
 var HEALTH = 1
 signal ACTIVATE
 
@@ -21,8 +21,13 @@ func _physics_process(delta: float) -> void:
 		VELOCITYY += GRAVITY * delta
 	if VELOCITYY > 0 and is_on_floor():
 		VELOCITYY = 0
+	if VELOCITYY > 0:
+		GRAVITY = 1000
+	if VELOCITYY < 0:
+		GRAVITY = 530
 	if Input.is_action_just_pressed("jump") and is_on_floor() and HEALTH == 1:
 		VELOCITYY = JUMP
+	#	GRAVITY = GRAVITY / 2
 	elif Input.is_action_just_released("jump") and is_on_floor() == false and HEALTH == 1:
 		VELOCITYY = VELOCITYY / 2
 	if Input.is_action_pressed("left") and HEALTH == 1:
@@ -39,9 +44,8 @@ func _physics_process(delta: float) -> void:
 		VELOCITYX -= FRICTION * delta
 	if VELOCITYY < JUMPCAP:
 		VELOCITYY = JUMPCAP
-	if HEALTH == 0:
-		print("fucking timer")
-		$Timer.start()
+	if is_on_floor():
+		GRAVITY = 500
 	move_and_slide()
 
 func animation(delta):
@@ -72,18 +76,17 @@ func death(delta):
 	VELOCITYX = 0
 	$CollisionShape2D.disabled = true
 func damage():
-	HEALTH -= 1
+	if VELOCITYY > 1 or VELOCITYY == 0:
+		HEALTH -= 1
 	if HEALTH < 1:
 		VELOCITYX = 0
 		VELOCITYY = JUMP
 
+func damageair():
+	HEALTH -= 1
 
 func _on_blockbreak_body_entered(body: Node2D) -> void:
 	if body.has_method("destroy"):
-		if VELOCITYY < -90:
+		if VELOCITYY < -90 and HEALTH > 0:
 			body.destroy()
 			negativebounce()
-
-
-func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()

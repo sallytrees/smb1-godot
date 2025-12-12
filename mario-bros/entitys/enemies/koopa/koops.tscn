@@ -50,13 +50,13 @@ shape = SubResource("RectangleShape2D_icf85")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-13, 1)
-target_position = Vector2(-18, 0)
-collision_mask = 130
+target_position = Vector2(-4, 0)
+collision_mask = 131
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2(11, 2)
-target_position = Vector2(18, 0)
-collision_mask = 130
+target_position = Vector2(3, 0)
+collision_mask = 131
 
 [node name="death2" type="Timer" parent="."]
 wait_time = 9.729

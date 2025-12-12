@@ -1,16 +1,16 @@
 extends CharacterBody2D
-var GRAVITY = 200
+var GRAVITY = 200 * 4
 var DIR = 1
-var SPEED = 5
+var SPEED = 999999999
 var ALIVE = -77
 signal bounce
 
 func _physics_process(delta: float) -> void:
-	if DIR == 1 and ALIVE == 1:
-		position.x -= SPEED * delta
-	elif DIR == -1 and ALIVE == 1:
-		position.x += SPEED * delta
-	if is_on_floor():
+	#if DIR == 1 and ALIVE == 1:
+	#	position.x -= SPEED * delta
+#	elif DIR == -1 and ALIVE == 1:
+#		position.x += SPEED * delta
+	if not is_on_floor():
 		position.y += GRAVITY * delta
 	if ALIVE == 1:
 		$Goomba.play("walk")

@@ -18,3 +18,7 @@ func _on_activate_body_exited(body: Node2D) -> void:
 
 func _on_delete_body_entered(body: Node2D) -> void:
 	body.queue_free()
+
+
+func _on_entityloader_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

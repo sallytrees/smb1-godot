@@ -1,6 +1,6 @@
 extends Area2D
 var MOVE = 0
-var SPEED = 70
+var SPEED = 90
 var VELOCITY = 0
 
 func _physics_process(delta: float) -> void:

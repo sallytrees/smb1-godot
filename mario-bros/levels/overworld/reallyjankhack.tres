@@ -1,9 +1,9 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dg7rjhkev1adp"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://rygec4eslubq"]
 
-[ext_resource type="Texture2D" uid="uid://tbu6wlgk25fb" path="res://assets/tileset/tileset.png" id="1_65nba"]
+[ext_resource type="Texture2D" uid="uid://tbu6wlgk25fb" path="res://assets/tileset/tileset.png" id="1_vb4og"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1htcm"]
-texture = ExtResource("1_65nba")
+texture = ExtResource("1_vb4og")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -659,6 +659,6 @@ texture = ExtResource("1_65nba")
 32:4/0 = 0
 
 [resource]
-physics_layer_0/collision_layer = 138
-physics_layer_0/collision_mask = 138
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 2
 sources/1 = SubResource("TileSetAtlasSource_1htcm")
