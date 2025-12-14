@@ -7,7 +7,7 @@ var JUMP = -245
 var JUMPCAP = -1000
 var SPEED = 255
 var SPEEDCAP  = 90
-var FRICTION = 96
+var FRICTION = 120
 var HEALTH = 1
 signal ACTIVATE
 
@@ -33,19 +33,28 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("left") and HEALTH == 1:
 		if VELOCITYX > -SPEEDCAP:
 			VELOCITYX -= SPEED * delta
-		$AnimatedSprite2D.flip_h = true
+		if is_on_floor():
+			$AnimatedSprite2D.flip_h = true
 	if VELOCITYX < 0:
 		VELOCITYX += FRICTION * delta
 	if Input.is_action_pressed("right") and HEALTH == 1:
 		if VELOCITYX < SPEEDCAP:
 			VELOCITYX += SPEED * delta
-		$AnimatedSprite2D.flip_h = false
+		if is_on_floor():
+			$AnimatedSprite2D.flip_h = false
 	if VELOCITYX > 0:
 		VELOCITYX -= FRICTION * delta
 	if VELOCITYY < JUMPCAP:
 		VELOCITYY = JUMPCAP
 	if is_on_floor():
 		GRAVITY = 500
+	if VELOCITYX > 0 and is_on_floor() == false and Input.is_action_pressed("left"):
+		SPEED = 127.5
+	elif VELOCITYX < 0 and is_on_floor() == false and Input.is_action_pressed("right"):
+		SPEED = 127.5
+	else:SPEED = 255
+	if is_on_ceiling():
+		VELOCITYY = 2
 	move_and_slide()
 
 func animation(delta):
@@ -61,7 +70,10 @@ func animation(delta):
 		$AnimatedSprite2D.play("death")
 	if HEALTH < 1:
 		death(delta)
-
+	if VELOCITYX > 0 and Input.is_action_pressed("left") and is_on_floor():
+		$AnimatedSprite2D.play("turn")
+	if VELOCITYX < 0 and Input.is_action_pressed("right") and is_on_floor():
+		$AnimatedSprite2D.play("turn")
 
 func bounce():
 	VELOCITYY = JUMP / 2
@@ -76,7 +88,7 @@ func death(delta):
 	VELOCITYX = 0
 	$CollisionShape2D.disabled = true
 func damage():
-	if VELOCITYY > 1 or VELOCITYY == 0:
+	if VELOCITYY < 250 or VELOCITYY == 0:
 		HEALTH -= 1
 	if HEALTH < 1:
 		VELOCITYX = 0

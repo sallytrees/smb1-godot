@@ -2,7 +2,7 @@ extends CharacterBody2D
 var GRAVITY = 30 * 2 
 var DIR = 1
 var SPEED = 25
-var ALIVE = -77
+var ALIVE = 1
 var SHELL = 0
 signal bounce
 signal hurt
@@ -104,5 +104,5 @@ func _on_death_2_timeout() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("damage") and ALIVE > -2:
+	if body.has_method("damage") and ALIVE == 1 or body.has_method("damage") and ALIVE == -1:
 		body.damage()

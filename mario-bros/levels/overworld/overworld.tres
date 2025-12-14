@@ -659,6 +659,6 @@ texture = ExtResource("1_65nba")
 32:4/0 = 0
 
 [resource]
-physics_layer_0/collision_layer = 138
-physics_layer_0/collision_mask = 138
+physics_layer_0/collision_layer = 154
+physics_layer_0/collision_mask = 154
 sources/1 = SubResource("TileSetAtlasSource_1htcm")

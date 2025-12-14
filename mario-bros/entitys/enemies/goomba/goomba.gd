@@ -2,7 +2,7 @@ extends CharacterBody2D
 var GRAVITY = 200 * 4
 var DIR = 1
 var SPEED = 999999999
-var ALIVE = -77
+var ALIVE = 1
 signal bounce
 
 func _physics_process(delta: float) -> void:
