@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjup3lvxlq42q"]
+
+[ext_resource type="Script" uid="uid://dx36vi0bstmog" path="res://entitys/objects/entity loader/entityloader.gd" id="1_ihg86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41qyc"]
+
+[node name="entityloader" type="Area2D"]
+collision_layer = 64
+collision_mask = 64
+script = ExtResource("1_ihg86")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_41qyc")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
