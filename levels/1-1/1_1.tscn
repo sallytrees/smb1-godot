@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b4i65et8hvh5o"]
+[gd_scene load_steps=12 format=4 uid="uid://b4i65et8hvh5o"]
 
 [ext_resource type="TileSet" uid="uid://dg7rjhkev1adp" path="res://levels/overworld/overworld.tres" id="1_e2dsk"]
 [ext_resource type="Texture2D" uid="uid://dfbdvvcp5aje0" path="res://assets/tileset/sky.png" id="2_eq4a5"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bjup3lvxlq42q" path="res://entitys/objects/entity loader/entityloader.tscn" id="7_sdprl"]
 [ext_resource type="PackedScene" uid="uid://bbxf2pbmvlefe" path="res://entitys/enemies/koopa/koops.tscn" id="8_sasdn"]
 [ext_resource type="PackedScene" uid="uid://bdstuts8yy60f" path="res://entitys/enemies/goomba/goomba.tscn" id="8_vkoor"]
+[ext_resource type="PackedScene" uid="uid://dop67u6su7m8e" path="res://entitys/objects/pipe_trigger/pipe.tscn" id="9_sasdn"]
+[ext_resource type="PackedScene" uid="uid://bt5oi7qleee0a" path="res://entitys/objects/change_level/change_level.tscn" id="10_xlt7m"]
+[ext_resource type="PackedScene" uid="uid://jtfs6j2geuyv" path="res://entitys/objects/levelinit/levelinit.tscn" id="11_d7eas"]
 
 [node name="1-1" type="TileMapLayer"]
 z_index = -3
@@ -102,3 +105,13 @@ ENTITY = ExtResource("8_vkoor")
 [node name="entityloader9" parent="entities" instance=ExtResource("7_sdprl")]
 position = Vector2(1689, 5)
 ENTITY = ExtResource("8_sasdn")
+
+[node name="pipe2" parent="." instance=ExtResource("9_sasdn")]
+position = Vector2(926, -39)
+
+[node name="change_level" parent="." instance=ExtResource("10_xlt7m")]
+position = Vector2(790, -57)
+LEVEL = "res://levels/1-2/1_2.tscn"
+
+[node name="levelinit" parent="." instance=ExtResource("11_d7eas")]
+position = Vector2(1853, -121)
