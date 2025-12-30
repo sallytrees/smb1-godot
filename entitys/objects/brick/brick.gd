@@ -9,11 +9,13 @@ var BREAK = 0
 func destroy():
 	BREAK = 1
 	queue_free()
-	
+	Global.SCORE += 200
 func block():
 	pass
 
-
+func _ready() -> void:
+	if Global.LEVELTHEME == 1:
+		$Sprite2D.frame = 68
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

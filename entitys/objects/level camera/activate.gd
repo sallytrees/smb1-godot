@@ -2,12 +2,12 @@ extends Camera2D
 signal activate
 
 func _ready() -> void:
-	$Timer.start()
+	$world2.text = Global.LEVELNUMBER
 
 func _physics_process(delta: float) -> void:
-	print("time:",$Timer.time_left)
-	$time2.text = str(int($Timer.time_left))
-
+	$time2.text = str(int(Global.LEVEL_TIMER))
+	$coins.text = str(int(Global.COINS))
+	$score.text = str(int(Global.SCORE))
 func _on_activate_body_entered(body: Node2D) -> void:
 	if body.has_method("activate"):
 		body.activate()

@@ -4,7 +4,7 @@ var SPEED = 90
 var VELOCITY = 0
 
 func _physics_process(delta: float) -> void:
-	if MOVE == 1:
+	if MOVE == 1 and Global.CAM_SCROLL == 1:
 		$"..".position.x += SPEED * delta
 
 

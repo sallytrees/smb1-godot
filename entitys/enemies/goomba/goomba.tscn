@@ -44,6 +44,7 @@ func _on_death_body_entered(body: Node2D) -> void:
 	ALIVE = 0
 	$CollisionShape2D.scale.y = 0.5
 	$Timer.start()
+	Global.SCORE += 100
 
 func _on_timer_timeout() -> void:
 	queue_free()

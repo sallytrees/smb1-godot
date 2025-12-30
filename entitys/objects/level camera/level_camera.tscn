@@ -103,7 +103,7 @@ theme_override_font_sizes/bold_italics_font_size = 1
 text = "mario"
 autowrap_mode = 0
 
-[node name="mario2" type="RichTextLabel" parent="."]
+[node name="score" type="RichTextLabel" parent="."]
 offset_left = -104.0
 offset_top = -92.0
 offset_right = 55.0

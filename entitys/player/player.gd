@@ -13,8 +13,12 @@ signal ACTIVATE
 
 
 func _physics_process(delta: float) -> void:
-	print(VELOCITYY)
 	animation(delta)
+	if HEALTH > 0:
+		Global.ISPLAYERALIVE = 1
+	else: Global.ISPLAYERALIVE = 0
+	if Global.CUTSCENE == 1:
+		queue_free()
 	self.position.y += VELOCITYY * delta
 	self.position.x += VELOCITYX * delta
 	if is_on_floor() == false:
@@ -55,6 +59,9 @@ func _physics_process(delta: float) -> void:
 	else:SPEED = 255
 	if is_on_ceiling():
 		VELOCITYY = 2
+	if is_on_floor():
+		Global.ISPLAYERGROUNDED = 1
+	else: Global.ISPLAYERGROUNDED = 0
 	move_and_slide()
 
 func animation(delta):

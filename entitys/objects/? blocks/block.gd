@@ -7,7 +7,7 @@ func _physics_process(delta: float) -> void:
 func destroy():
 	BREAK = 1
 	queue_free()
-	
+	Global.SCORE += 200
 func block():
 	pass
 

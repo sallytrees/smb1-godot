@@ -27,10 +27,12 @@ func _physics_process(delta: float) -> void:
 		$koopa.play("getup")
 	if $RayCast2D.is_colliding() == true and ALIVE > -2:
 		if $RayCast2D.get_collider().has_method("bounce") == false:
+			Global.SCORE += 400
 			DIR = -1
 			$koopa.flip_h = true
 	if $RayCast2D2.is_colliding() == true and ALIVE > -2:
 		if $RayCast2D2.get_collider().has_method("bounce") == false:
+			Global.SCORE += 400
 			DIR = 1
 			$koopa.flip_h = false
 	if ALIVE == -1:
@@ -62,6 +64,7 @@ func _on_right_body_entered(body: Node2D) -> void:
 func _on_death_body_entered(body: Node2D) -> void:
 	$koopa.play("shell")
 	ALIVE -= 1
+	Global.SCORE += 100
 	if body.has_method("bounce"):
 		body.bounce()
 	$CollisionShape2D.scale.y = 0.5
